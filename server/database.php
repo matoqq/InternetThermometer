@@ -4,32 +4,32 @@
     <head>
         <title>Database</title>
     </head>
-    
+
     <body>
         <table width="100%" border="1px solid black">
             <tr><td>
                 <a href="../">Home</a>
                 <!--<a href="/database.php">Database</a>-->
                 <a href="/graph.php">Graph</a>
-                
+
                 </td></tr>
             <tr><td><h1>Database</h1></td></tr>
         </table><br>
-        
-        
+
+
         <?php
-            
-            
+
+
             // Create connection
             $conn = new mysqli($servername, $username, $password, $database);
             // Check connection
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
-            } 
-            
-            $sql = "SELECT * FROM sensors_table";
+            }
+
+            $sql = "SELECT * FROM sensors_table ORDER BY time DESC";
             $result = $conn->query($sql);
-            
+
             if ($result->num_rows > 0) {
                 // output data of each row
                 ?>
